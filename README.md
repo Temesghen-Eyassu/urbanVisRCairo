@@ -55,6 +55,8 @@ This combined visualization allows users to explore spatial patterns and attribu
 
 To generate and view the combined maps and histograms for compactness and area, simply run the following code after sourcing or running the 3_compactness_area_graphs script:
 
+        buildings_unstructured = "path/to/unstructured_buildings.gpkg",
+        buildings_structured = "path/to/structured_buildings.gpk
         structured_compactness_plot <- plot_map_and_histogram(buildings_structured, "compactness", "Structured")
         structured_area_plot <- plot_map_and_histogram(buildings_structured, "area", "Structured", fill_option = "D")
         unstructured_compactness_plot <- plot_map_and_histogram(buildings_unstructured, "compactness", "Unstructured")
@@ -104,6 +106,7 @@ Load and run the function, passing the file paths of your datasets:
 To compare and visualize the spatial distribution and average area of buildings between structured and unstructured datasets using hexagonal binning.
 
 What it does:
+
 Reads two building datasets, calculates building areas, creates a shared hexagonal grid over their combined extent, filters to a core study area, aggregates building counts and average area per hex, removes outliers, and produces side-by-side hexbin maps and density plots for both datasets.
 
 ![Image](https://github.com/user-attachments/assets/c6462f3d-79fc-49fd-a46b-8e64fe459106)
@@ -122,4 +125,47 @@ After sourcing or running 5_building_area_hexbins.R, simply run the following fu
      )
 
 
- 
+### **Statistical Visualization of Building Compactness: Boxplot, Violin, and Density Analysis**
+#### Purpose 
+This function aims to support urban morphological analysis by calculating a compactness index (4πA/P²) for buildings and generating statistical visualizations that compare how compact or sprawling the buildings are across structured (planned) and unstructured (unplanned) areas. The resulting plots (boxplot, density, and violin) highlight key distributional characteristics such as variability, central tendency, and potential outliers.
+
+What it does:
+
+•	Reads two building datasets (structured and unstructured areas) in GeoPackage format.
+
+•	Calculates compactness for each building using the formula:
+
+         			 Compactness=4π×Area/PerimeterSquare  
+             
+•	Labels buildings as "Structured" or "Unstructured".
+
+•	Combine the two datasets into one for comparison.
+
+•	Generates three plots to visualize the compactness distribution:
+
+    Boxplot — shows media, spread, and outliers.
+    
+    Violin plot — shows distribution shape and density.
+    
+    Density plot — compares the probability distribution of compactness between the two types.
+    
+•	Performs a Wilcoxon statistical test to compare differences in compactness between the two groups.
+
+•	Returns a single patchwork plot combining all three visualizations.
+
+![Image](https://github.com/user-attachments/assets/fb3f4201-9945-43e2-938d-28aeb5f33ac1)
+
+
+The p-value from the statistical test (Wilcoxon test here) comparing the compactness between structured and unstructured buildings, whereas u refers to the mean compactness (μ), and the number after ± is the standard deviation (SD).
+
+**How to Visuaize 
+
+After sourcing or running 6_Boxplot_violin.R, simply run the following function:
+
+     p<-compare_building_compactness(
+       unstructured_path = "path/to/unstructured_buildings.gpkg",
+       structured_path = "path/to/unstructured_buildings.gpkg"
+     )
+     print(p)
+
+
