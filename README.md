@@ -64,4 +64,62 @@ To generate and view the combined maps and histograms for compactness and area, 
                unstructured_compactness_plot / unstructured_area_plot)
                print(final_plot)
 
+### **Compactness Analysis and Visualization for Structured vs. Unstructured Buildings**
+#### Purpose 
+This tool helps users quickly explore and compare the shape characteristics of building footprints in different urban contexts, making it easier to interpret spatial patterns of building compactness both visually (maps) and statistically (histograms/density).
 
+This function, plot_compactness_area_graphs(), processes two spatial polygon datasets representing structured and unstructured buildings. It calculates a compactness metric — a geometric shape measure defined as 
+4𝜋×area/perimeterSquare— which quantifies how close each building’s shape is to a perfect circle (values closer to 1 indicate more compact, regular shapes).
+
+What it does:
+
+  -Reads spatial datasets of building footprints from GeoPackage files.
+
+  -Computes compactness values for each building polygon.
+
+  -Creates thematic maps of compactness for both structured and unstructured buildings using color gradients.
+
+  -Generates a combined histogram and density plot to compare the distribution of compactness values across the two building types.
+
+  -Combines these visualizations into a cohesive layout using patchwork, allowing for easy side-by-side spatial and statistical comparison.
+
+![Image](https://github.com/user-attachments/assets/66a31c0b-1b48-4d68-9ad5-27778044d99b)
+
+The density scale on the y-axis represents the probability density — that is, the relative likelihood of compactness values falling within each bin, normalized so the total area under the histogram sums to 1.
+
+**How to Visualize Compactness Analysis
+
+To generate the compactness comparison plots for structured and unstructured buildings, you can use the function plot_compactness_area_graphs() from the script 4_compactness_analysis.R. 
+Load and run the function, passing the file paths of your datasets:
+
+     plot_compactness_area_graphs(
+          unstructured_path = "path/to/unstructured_buildings.gpkg",
+          structured_path = "path/to/structured_buildings.gpkg"
+     )
+
+
+
+### **Spatial hexbin aggregation and comparative visualization of building areas in structured vs. unstructured**
+#### Purpose 
+To compare and visualize the spatial distribution and average area of buildings between structured and unstructured datasets using hexagonal binning.
+
+What it does:
+Reads two building datasets, calculates building areas, creates a shared hexagonal grid over their combined extent, filters to a core study area, aggregates building counts and average area per hex, removes outliers, and produces side-by-side hexbin maps and density plots for both datasets.
+
+![Image](https://github.com/user-attachments/assets/c6462f3d-79fc-49fd-a46b-8e64fe459106)
+
+The **Avg Area** represents the average surface area of building footprints within each hexagonal cell. It quantifies the typical size of buildings in square meters (or map units) by averaging the total ground area covered by all buildings in that cell. This helps compare building sizes spatially between structured and unstructured areas.
+
+The **density** on the y-axis represents the relative frequency of hexagonal cells with a given average building area on the x-axis. It shows how building sizes are distributed spatially, with higher values indicating more hex cells having that average area. The values (e.g., 0 to 0.0075) reflect the probability density, not counts, so they sum to 1 over the range.
+
+**How to Visuaize 
+
+After sourcing or running 5_building_area_hexbins.R, simply run the following function:
+
+     plot_hexbin_area_analysis(
+       unstructured_path = "path/to/unstructured_buildings.gpkg",
+       structured_path = "path/to/unstructured_buildings.gpkg"
+     )
+
+
+ 
