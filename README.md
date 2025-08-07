@@ -49,23 +49,19 @@ This combined visualization allows users to explore spatial patterns and attribu
       3. Unstructured Buildings: Compactness map accompanied by its histogram
       4. Unstructured Buildings: Area distribution map accompanied by its histogram
     
-![Image](https://github.com/user-attachments/assets/dc7be936-5770-40f8-beec-7de2c8f184fb)
+![Image](https://github.com/user-attachments/assets/f5cdac2a-f168-49d4-8fe2-d4c433f4d255)
 
 **How to Visualize the Maps and Graphs**
 
 To generate and view the combined maps and histograms for compactness and area, simply run the following code after sourcing or running the 3_compactness_area_graphs script:
 
-        buildings_unstructured = "path/to/unstructured_buildings.gpkg",
-        buildings_structured = "path/to/structured_buildings.gpk
-        structured_compactness_plot <- plot_map_and_histogram(buildings_structured, "compactness", "Structured")
-        structured_area_plot <- plot_map_and_histogram(buildings_structured, "area", "Structured", fill_option = "D")
-        unstructured_compactness_plot <- plot_map_and_histogram(buildings_unstructured, "compactness", "Unstructured")
-        unstructured_area_plot <- plot_map_and_histogram(buildings_unstructured, "area", "Unstructured", fill_option = "D")
-        
-        final_plot <- (structured_compactness_plot / structured_area_plot /
-               unstructured_compactness_plot / unstructured_area_plot)
-               print(final_plot)
+    final_plot <- analyze_building(
+          unstructured_path = "path/to/unstructured_buildings.gpkg",
+          structured_path = "path/to/structured_buildings.gpkg"
+       )
+     print(final_plot)
 
+***Note**: You must load the packages sf, dplyr, ggplot2, viridis, and patchwork before running final_plot
 ### **Compactness Analysis and Visualization for Structured vs. Unstructured Buildings**
 #### Purpose 
 This tool helps users quickly explore and compare the shape characteristics of building footprints in different urban contexts, making it easier to interpret spatial patterns of building compactness both visually (maps) and statistically (histograms/density).
