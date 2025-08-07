@@ -11,22 +11,6 @@ plot_map_and_histogram(
   fill_option = "C",
   bins = 30
 )
-
-plot_map_and_histogram(
-  data,
-  variable,
-  title_prefix,
-  fill_option = "C",
-  bins = 30
-)
-
-plot_map_and_histogram(
-  data,
-  variable,
-  title_prefix,
-  fill_option = "C",
-  bins = 30
-)
 }
 \arguments{
 \item{data}{An \code{sf} object with spatial features.}
@@ -41,26 +25,8 @@ plot_map_and_histogram(
 }
 \value{
 A combined \code{patchwork} object of the map and histogram plots.
-
-A combined \code{patchwork} object of the map and histogram plots.
-
-A combined \code{patchwork} object of the map and histogram plots.
 }
 \description{
-This function produces a combined plot showing:
-\itemize{
-\item A spatial map with polygons colored by a numeric variable.
-\item A histogram showing the distribution of the variable.
-}
-The map and histogram share the same Viridis color scale for consistent coloring.
-
-This function produces a combined plot showing:
-\itemize{
-\item A spatial map with polygons colored by a numeric variable.
-\item A histogram showing the distribution of the variable.
-}
-The map and histogram share the same Viridis color scale for consistent coloring.
-
 This function produces a combined plot showing:
 \itemize{
 \item A spatial map with polygons colored by a numeric variable.

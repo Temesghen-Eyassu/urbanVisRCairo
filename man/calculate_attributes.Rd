@@ -5,19 +5,11 @@
 \title{Calculate Area, Perimeter, and Compactness for Spatial Polygons}
 \usage{
 calculate_attributes(data)
-
-calculate_attributes(data)
-
-calculate_attributes(data)
 }
 \arguments{
 \item{data}{An \code{sf} object containing polygon geometries.}
 }
 \value{
-An \code{sf} object with additional columns: \code{area}, \code{perimeter}, and \code{compactness}.
-
-An \code{sf} object with additional columns: \code{area}, \code{perimeter}, and \code{compactness}.
-
 An \code{sf} object with additional columns: \code{area}, \code{perimeter}, and \code{compactness}.
 }
 \description{
@@ -26,25 +18,7 @@ three spatial attributes:
 \itemize{
 \item \code{area}: Polygon area (square meters).
 \item \code{perimeter}: Polygon perimeter length (meters).
-\item \code{compactness}: Compactness index \eqn{4 \pi * \mathrm{area} / \mathrm{perimeter}^2}.
-}
-The function returns the original \code{sf} object augmented with these new columns.
-
-Given an \code{sf} object with polygon geometries, this function calculates
-three spatial attributes:
-\itemize{
-\item \code{area}: Polygon area (square meters).
-\item \code{perimeter}: Polygon perimeter length (meters).
-\item \code{compactness}: Compactness index \eqn{4 \pi * \mathrm{area} / \mathrm{perimeter}^2}.
-}
-The function returns the original \code{sf} object augmented with these new columns.
-
-Given an \code{sf} object with polygon geometries, this function calculates
-three spatial attributes:
-\itemize{
-\item \code{area}: Polygon area (square meters).
-\item \code{perimeter}: Polygon perimeter length (meters).
-\item \code{compactness}: Compactness index \eqn{4 \pi * \mathrm{area} / \mathrm{perimeter}^2}.
+\item \code{compactness}: Compactness index \eqn{4 \pi \times \mathrm{area} / \mathrm{perimeter}^2}.
 }
 The function returns the original \code{sf} object augmented with these new columns.
 }
