@@ -1,8 +1,8 @@
 Package: urbanVisRCairo
-Title: What the Package Does (One Line, Title Case)
+Title: Tools for Analyzing and Visualizing Urban Building Patterns in Cairo
 Version: 0.0.0.9000
 Authors@R: 
-    person("Temesghen", "Sereke", , "temesghensereke@gmail.com", role = c("aut", "cre"))
+    person("Temesghen", "Sereke", email = "temesghensereke@gmail.com", role = c("aut", "cre"))
 Description: A collection of tools for visualizing, analyzing, and comparing structured 
     and unstructured urban building patterns in Cairo using spatial vector data. 
     The package provides functions for computing geometric properties such as area, 
@@ -14,9 +14,12 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
-  sf,
-  ggplot2,
-  dplyr,
-  viridis,
-  patchwork,
-  ggpubr
+    sf,
+    ggplot2,
+    dplyr,
+    viridis,
+    patchwork,
+    ggpubr,
+    magrittr,
+    stats
+

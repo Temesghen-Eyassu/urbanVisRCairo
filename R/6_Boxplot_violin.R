@@ -169,3 +169,5 @@ compare_building_compactness <- function(unstructured_path, structured_path) {
 
 
 
+
+

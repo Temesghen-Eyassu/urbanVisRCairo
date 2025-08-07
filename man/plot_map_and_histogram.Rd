@@ -15,22 +15,17 @@ plot_map_and_histogram(
 \arguments{
 \item{data}{An \code{sf} object with spatial features.}
 
-\item{variable}{Character string specifying the numeric variable column name.}
+\item{variable}{Variable name as string.}
 
-\item{title_prefix}{String prefix for plot titles (e.g., "Structured", "Unstructured").}
+\item{title_prefix}{String prefix for plot titles.}
 
-\item{fill_option}{Viridis color scale option (default: "C").}
+\item{fill_option}{Viridis palette option.}
 
-\item{bins}{Number of bins for histogram (default: 30).}
+\item{bins}{Number of histogram bins.}
 }
 \value{
-A combined \code{patchwork} object of the map and histogram plots.
+A \code{patchwork} object combining map and histogram.
 }
 \description{
-This function produces a combined plot showing:
-\itemize{
-\item A spatial map with polygons colored by a numeric variable.
-\item A histogram showing the distribution of the variable.
-}
-The map and histogram share the same Viridis color scale for consistent coloring.
+Create a Combined Map and Histogram Plot for a Spatial Variable
 }
