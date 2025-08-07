@@ -9,15 +9,15 @@ This package is ideal for urban morphology research, spatial planning, and visua
 
 To install the **urbanVisRCairo** package, use the following steps:
 
-1. **Install the devtools package** (if not already installed)
+1. **Install remotes package if not installed** 
     ```r
-    install.packages("devtools")
+    install.packages("remotes")
     ```
 2. **Install the Cairo_Structured-Unstructured_Buildings package from GitHub**:
 
     ```r
-    library(devtools)
-    install_github("Temesghen-Eyassu/urbanVisRCairo")
+    library(remotes)
+    remotes::install_github("Temesghen-Eyassu/urbanVisRCairo")
     ```
 3. **Load the package**:
 
