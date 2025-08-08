@@ -137,16 +137,17 @@ plot_hexbin_area_analysis <- function(unstructured_path, structured_path, hex_si
   # Step 11: Density plots with matching colors (very light blue and very light yellow)
 
   g_density_unstructured <- ggplot2::ggplot(hex_stats_unstructured_filtered, ggplot2::aes(x = avg_area)) +
-    ggplot2::geom_density(fill = "#3182bd", alpha = 0.5) +  # medium blue fill (matches high end of gradient)
+    ggplot2::geom_density(fill = "#7faedc", alpha = 0.3) +  # lighter blue, more transparent
     ggplot2::labs(title = "Unstructured – Avg Area Density", x = "Avg Area (m²)", y = "Density") +
     ggplot2::theme_minimal(base_size = 13) +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
 
   g_density_structured <- ggplot2::ggplot(hex_stats_structured_filtered, ggplot2::aes(x = avg_area)) +
-    ggplot2::geom_density(fill = "#fec44f", alpha = 0.5) +  # darker yellow fill (matches high end of gradient)
+    ggplot2::geom_density(fill = "#fde8a0", alpha = 0.3) +  # lighter yellow, more transparent
     ggplot2::labs(title = "Structured – Avg Area Density", x = "Avg Area (m²)", y = "Density") +
     ggplot2::theme_minimal(base_size = 13) +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+
 
 
   # Step 12: Combine plots
