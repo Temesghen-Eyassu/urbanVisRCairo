@@ -62,6 +62,33 @@ To generate and view the combined maps and histograms for compactness and area, 
      print(final_plot)
 
 ***Note**: You must load the packages sf, dplyr, ggplot2, viridis, and patchwork before running final_plot
+
+### **Plot Building Area Bins for Structured and Unstructured Buildings**
+#### Purpose 
+This function helps visualize building footprint sizes by classifying buildings into predefined area bins and mapping them side-by-side for two datasets: structured and unstructured buildings
+.
+It reads spatial building data, calculates the area of each building polygon, categorizes the buildings into bins (e.g., "<16 m²", "16-48 m²", etc.), and generates two maps side-by-side showing the spatial distribution of these bins. A shared bar chart legend below the maps clearly shows the area bins with consistent colors.
+
+What it does: 
+   -The input datasets must be spatial polygon data in a projected Coordinate Reference System (CRS), so that area calculations are accurate.
+   -The building footprints are classified into seven area bins.
+   -Two maps are plotted side-by-side, each colored by building area bin.
+   - A common legend bar displays the bins and their color codes.
+   - This visualization allows urban planners and researchers to easily compare size distributions spatially between different urban forms.
+     
+![Image](https://github.com/user-attachments/assets/98aacd97-326e-45a5-b004-d4e76d48174f)
+
+**How to Visualize Compactness Analysis**
+
+After sourcing or running 7_area_graphs, simply run the following function:
+   
+   plot_building_area_bins(
+     unstructured_path = "path/to/unstructured_buildings.gpkg",
+      structured_path = "path/to/structured_buildings.gpkg"
+  )
+
+***Note**: You must load the libraries sf, dplyr, ggplot2, viridis, and patchwork before running  plot_building_area_bins
+
 ### **Compactness Analysis and Visualization for Structured vs. Unstructured Buildings**
 #### Purpose 
 This tool helps users quickly explore and compare the shape characteristics of building footprints in different urban contexts, making it easier to interpret spatial patterns of building compactness both visually (maps) and statistically (histograms/density).
@@ -85,11 +112,11 @@ What it does:
 
 The density scale on the y-axis represents the probability density — that is, the relative likelihood of compactness values falling within each bin, normalized so the total area under the histogram sums to 1.
 
-**How to Visualize Compactness Analysis
+**How to Visualize Compactness Analysis**
 
 To generate the compactness comparison plots for structured and unstructured buildings, you can use the function plot_compactness_area_graphs() from the script 4_compactness_analysis.R. 
 Load and run the function, passing the file paths of your datasets:
-
+After sourcing or running 5_building_area_hexbins.R, simply run the following function:
      plot_compactness_area_graphs(
           unstructured_path = "path/to/unstructured_buildings.gpkg",
           structured_path = "path/to/structured_buildings.gpkg"
@@ -111,7 +138,7 @@ The **Avg Area** represents the average surface area of building footprints with
 
 The **density** on the y-axis represents the relative frequency of hexagonal cells with a given average building area on the x-axis. It shows how building sizes are distributed spatially, with higher values indicating more hex cells having that average area. The values (e.g., 0 to 0.0075) reflect the probability density, not counts, so they sum to 1 over the range.
 
-**How to Visuaize 
+**How to Visuaize** 
 
 After sourcing or running 5_building_area_hexbins.R, simply run the following function:
 
@@ -154,7 +181,7 @@ What it does:
 
 The p-value from the statistical test (Wilcoxon test here) comparing the compactness between structured and unstructured buildings, whereas u refers to the mean compactness (μ), and the number after ± is the standard deviation (SD).
 
-**How to Visuaize 
+**How to Visuaize** 
 
 After sourcing or running 6_Boxplot_violin.R, simply run the following function:
 
