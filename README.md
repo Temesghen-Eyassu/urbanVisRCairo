@@ -70,22 +70,30 @@ This function helps visualize building footprint sizes by classifying buildings 
 It reads spatial building data, calculates the area of each building polygon, categorizes the buildings into bins (e.g., "<16 m²", "16-48 m²", etc.), and generates two maps side-by-side showing the spatial distribution of these bins. A shared bar chart legend below the maps clearly shows the area bins with consistent colors.
 
 What it does: 
+
    -The input datasets must be spatial polygon data in a projected Coordinate Reference System (CRS), so that area calculations are accurate.
+   
    -The building footprints are classified into seven area bins.
+   
    -Two maps are plotted side-by-side, each colored by building area bin.
-   - A common legend bar displays the bins and their color codes.
-   - This visualization allows urban planners and researchers to easily compare size distributions spatially between different urban forms.
+   
+   -A common legend bar displays the bins and their color codes.
+   
+   -This visualization allows urban planners and researchers to easily compare size distributions spatially between different urban forms.
      
 ![Image](https://github.com/user-attachments/assets/98aacd97-326e-45a5-b004-d4e76d48174f)
 
 **How to Visualize Compactness Analysis**
 
 After sourcing or running 7_area_graphs, simply run the following function:
+
    
-   plot_building_area_bins(
-     unstructured_path = "path/to/unstructured_buildings.gpkg",
-      structured_path = "path/to/structured_buildings.gpkg"
-  )
+      plot_building_area_bins(
+   
+        unstructured_path = "path/to/unstructured_buildings.gpkg",
+     
+        structured_path = "path/to/structured_buildings.gpkg"
+       )
 
 ***Note**: You must load the libraries sf, dplyr, ggplot2, viridis, and patchwork before running  plot_building_area_bins
 
@@ -118,7 +126,9 @@ To generate the compactness comparison plots for structured and unstructured bui
 Load and run the function, passing the file paths of your datasets:
 After sourcing or running 5_building_area_hexbins.R, simply run the following function:
      plot_compactness_area_graphs(
+     
           unstructured_path = "path/to/unstructured_buildings.gpkg",
+          
           structured_path = "path/to/structured_buildings.gpkg"
      )
 
@@ -143,7 +153,9 @@ The **density** on the y-axis represents the relative frequency of hexagonal cel
 After sourcing or running 5_building_area_hexbins.R, simply run the following function:
 
      plot_hexbin_area_analysis(
+     
        unstructured_path = "path/to/unstructured_buildings.gpkg",
+       
        structured_path = "path/to/unstructured_buildings.gpkg"
      )
 
