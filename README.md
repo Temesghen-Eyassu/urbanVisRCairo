@@ -105,7 +105,7 @@ What it does:
 
 Reads two building datasets, calculates building areas, creates a shared hexagonal grid over their combined extent, filters to a core study area, aggregates building counts and average area per hex, removes outliers, and produces side-by-side hexbin maps and density plots for both datasets.
 
-![Image](https://github.com/user-attachments/assets/c6462f3d-79fc-49fd-a46b-8e64fe459106)
+![Image](https://github.com/user-attachments/assets/18d94b33-fade-477a-8cdb-8ab23c473b4f)
 
 The **Avg Area** represents the average surface area of building footprints within each hexagonal cell. It quantifies the typical size of buildings in square meters (or map units) by averaging the total ground area covered by all buildings in that cell. This helps compare building sizes spatially between structured and unstructured areas.
 
@@ -149,7 +149,7 @@ What it does:
 
 •	Returns a single patchwork plot combining all three visualizations.
 
-![Image](https://github.com/user-attachments/assets/fb3f4201-9945-43e2-938d-28aeb5f33ac1)
+![Image](https://github.com/user-attachments/assets/08966120-b10f-488e-a2ff-135e0daa91f6)
 
 
 The p-value from the statistical test (Wilcoxon test here) comparing the compactness between structured and unstructured buildings, whereas u refers to the mean compactness (μ), and the number after ± is the standard deviation (SD).
