@@ -158,6 +158,8 @@ plot_hexbin_area_analysis <- function(unstructured_path, structured_path, hex_si
   print(final_plot)
 }
 
+library(patchwork)
+
 plot_hexbin_area_analysis(
   unstructured_path = "E:/EAGLE/Second_Semester/Scientific_Graphs/Five_ classes/NewCairo_unstructured.gpkg",
   structured_path = "E:/EAGLE/Second_Semester/Scientific_Graphs/Five_ classes/NewCairo_structured.gpkg"
