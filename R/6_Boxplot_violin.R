@@ -26,6 +26,7 @@
 #'   print(p)
 #'   ggsave("compactness_comparison.png", p, width = 12, height = 10, dpi = 300)
 #' }
+
 compare_building_compactness <- function(unstructured_path, structured_path) {
   # Load data
   buildings_unstructured <- sf::st_read(unstructured_path, quiet = TRUE)
@@ -68,6 +69,10 @@ compare_building_compactness <- function(unstructured_path, structured_path) {
       plot.margin = ggplot2::margin(t = 20, unit = "pt")
     )
 
+  # Define colors for types (lighter red for Structured)
+  my_colors_fill <- c("Structured" = "#FBB4B4", "Unstructured" = "gray70")
+  my_colors_color <- c("Structured" = "#FBB4B4", "Unstructured" = "gray70")
+
   # Boxplot
   p1 <- ggplot2::ggplot(combined_data, ggplot2::aes(x = type, y = compactness, fill = type)) +
     ggplot2::geom_boxplot(outlier.shape = NA, alpha = 0.7) +
@@ -91,7 +96,7 @@ compare_building_compactness <- function(unstructured_path, structured_path) {
       size = 4,
       color = "red"
     ) +
-    ggplot2::scale_fill_viridis_d(option = "C", direction = -1) +
+    ggplot2::scale_fill_manual(values = my_colors_fill) +
     ggplot2::labs(
       title = "Boxplot of Compactness",
       x = "Building Type",
@@ -109,8 +114,8 @@ compare_building_compactness <- function(unstructured_path, structured_path) {
       linetype = "dashed",
       linewidth = 1
     ) +
-    ggplot2::scale_fill_viridis_d(option = "C") +
-    ggplot2::scale_color_viridis_d(option = "C") +
+    ggplot2::scale_fill_manual(values = my_colors_fill) +
+    ggplot2::scale_color_manual(values = my_colors_color) +
     ggplot2::labs(
       title = "Density of Compactness",
       x = "Compactness (4πA/P²)",
@@ -148,7 +153,7 @@ compare_building_compactness <- function(unstructured_path, structured_path) {
       size = 4,
       color = "red"
     ) +
-    ggplot2::scale_fill_viridis_d(option = "C") +
+    ggplot2::scale_fill_manual(values = my_colors_fill) +
     ggplot2::labs(
       title = "Violin Plot of Compactness",
       x = "Building Type",
@@ -166,8 +171,5 @@ compare_building_compactness <- function(unstructured_path, structured_path) {
 
   return(final_plot)
 }
-
-
-
 
 

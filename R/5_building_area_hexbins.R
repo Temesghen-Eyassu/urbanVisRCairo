@@ -112,33 +112,42 @@ plot_hexbin_area_analysis <- function(unstructured_path, structured_path, hex_si
     na.rm = TRUE
   )
 
-  # Step 10: Hexbin maps
+  # Step 10: Hexbin maps with very light blue for unstructured and very light yellow for structured
+
   map_unstructured <- ggplot2::ggplot(hex_stats_unstructured_filtered) +
     ggplot2::geom_sf(ggplot2::aes(fill = avg_area), color = NA) +
-    ggplot2::scale_fill_viridis_c(option = "C", name = "Avg Area", limits = shared_scale) +
+    ggplot2::scale_fill_gradient(
+      low = "#deebf7", high = "#3182bd",  # very light blue to moderate blue
+      name = "Avg Area", limits = shared_scale
+    ) +
     ggplot2::labs(title = "Hexbin Map – Unstructured (Core Area)") +
     ggplot2::theme_void() +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.1, face = "bold"))
 
   map_structured <- ggplot2::ggplot(hex_stats_structured_filtered) +
     ggplot2::geom_sf(ggplot2::aes(fill = avg_area), color = NA) +
-    ggplot2::scale_fill_viridis_c(option = "C", name = "Avg Area", limits = shared_scale) +
+    ggplot2::scale_fill_gradient(
+      low = "#fff7bc", high = "#fec44f",  # very light yellow to darker yellow/orange
+      name = "Avg Area", limits = shared_scale
+    ) +
     ggplot2::labs(title = "Hexbin Map – Structured (Core Area)") +
     ggplot2::theme_void() +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.1, face = "bold"))
 
-  # Step 11: Density plots
+  # Step 11: Density plots with matching colors (very light blue and very light yellow)
+
   g_density_unstructured <- ggplot2::ggplot(hex_stats_unstructured_filtered, ggplot2::aes(x = avg_area)) +
-    ggplot2::geom_density(fill = "red", alpha = 0.5) +
+    ggplot2::geom_density(fill = "#3182bd", alpha = 0.5) +  # medium blue fill (matches high end of gradient)
     ggplot2::labs(title = "Unstructured – Avg Area Density", x = "Avg Area (m²)", y = "Density") +
     ggplot2::theme_minimal(base_size = 13) +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
 
   g_density_structured <- ggplot2::ggplot(hex_stats_structured_filtered, ggplot2::aes(x = avg_area)) +
-    ggplot2::geom_density(fill = "blue", alpha = 0.5) +
+    ggplot2::geom_density(fill = "#fec44f", alpha = 0.5) +  # darker yellow fill (matches high end of gradient)
     ggplot2::labs(title = "Structured – Avg Area Density", x = "Avg Area (m²)", y = "Density") +
     ggplot2::theme_minimal(base_size = 13) +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+
 
   # Step 12: Combine plots
   final_plot <- (map_unstructured | g_density_unstructured) /
@@ -147,3 +156,9 @@ plot_hexbin_area_analysis <- function(unstructured_path, structured_path, hex_si
 
   print(final_plot)
 }
+
+plot_hexbin_area_analysis(
+  unstructured_path = "E:/EAGLE/Second_Semester/Scientific_Graphs/Five_ classes/NewCairo_unstructured.gpkg",
+  structured_path = "E:/EAGLE/Second_Semester/Scientific_Graphs/Five_ classes/NewCairo_structured.gpkg"
+)
+
